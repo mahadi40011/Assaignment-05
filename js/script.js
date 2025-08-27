@@ -25,3 +25,23 @@ copy('electricity-helpline-copy', '16216')
 copy('brac-helpline-copy', '16445')
 copy('railway-helpline-copy', '163')
 
+// copy button count 
+const copyButtons = document.getElementsByClassName('copy-btn')
+let copyCount = 0
+for(const copybtn of copyButtons ){
+    copybtn.addEventListener("click", function(){
+        copyCount++
+        document.getElementById('copy-count').innerText = copyCount
+    })
+}
+
+// heart button count 
+const heartButtons = document.getElementsByClassName('heart')
+let heartCount = 0
+for(const heartbtn of heartButtons ){
+    heartbtn.addEventListener("click", function(){
+        heartCount++
+        document.getElementById('heart-count').innerText = heartCount
+    })
+}
+
