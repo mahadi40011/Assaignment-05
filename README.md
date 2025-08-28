@@ -7,7 +7,7 @@
 
 
 ## 1. Answer
-   ##### The difference between getElementById, getElementsByClassName, and querySelector, querySelectorAll is:
+   #### The difference between getElementById, getElementsByClassName, and querySelector, querySelectorAll is:
    ### getElementById()
    i. Return single Element    
    ii. Works only with id   
@@ -32,19 +32,17 @@
 
 
 ## 2. Answer
-   ##### Using document.createElement() we can create any HTML element
-   ##### Using appendChild() we can insert a new element into the DOM.      
+   #### Using document.createElement() we can create any HTML element and Using appendChild() we can insert a new element into the DOM.      
 
 ## 3. Answer
-   ##### When we click on a element, the event first fires on that element, then his parent -> his parnt -> his parnt -> his parnt -> up to the root. 
-   ##### That's called event bubbling.
+   #### When we click on a element, the event first fires on that element, then his parent -> his parnt -> his parnt -> his parnt -> up to the root. That's called event bubbling.
 
 ## 4. Answer
-   ##### Event Delegation is a technique where instead of attaching individual event listeners to multiple child elements, a single event listener is added to their parent element, and events are handled for the target child through event bubbling.
-   ##### It is very useful because here don'n have to provide a separate event listener for each child element, can handle event for all child elements by providing single event listener for the parent element.  
+   #### Event Delegation is a technique where instead of attaching individual event listeners to multiple child elements, a single event listener is added to their parent element, and events are handled for the target child through event bubbling.   
+   It is very useful because here don'n have to provide a separate event listener for each child element, can handle event for all child elements by providing single event listener for the parent element.  
 
 ## 5. Answer
-  ##### the difference between preventDefault() and stopPropagation() methods is:
+  #### the difference between preventDefault() and stopPropagation() methods is:
   ### preventDefault()
    This stops the predefined behavior of a DOM element 
   ### stopPropagation()
