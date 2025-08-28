@@ -1,6 +1,3 @@
-// global variable
-// const callHistoryList = []
-
 // function to copy number and paste
 function copy(id, value){
     document.getElementById(id).addEventListener('click', function(){
@@ -51,10 +48,9 @@ function call(id, message){
     callBtns.addEventListener('click', function(){
         let availableCoin = parseInt(document.getElementById('coin-count').innerText)
         if(availableCoin >= 20){
-            alert(message)
+            alert('📞' + message)
             newAvailableCoin = availableCoin - 20
             document.getElementById('coin-count').innerText = newAvailableCoin
-
         } 
         else{
             alert('You have not enough coin for the Call')
@@ -85,9 +81,7 @@ for(const btn of btns){
             number: firstH1Text,
             date: new Date().toLocaleTimeString()
         }
-        // callHistoryList.push(obj)
         callHistory(obj)
-        // console.log(callHistoryList)
     })
 }
 
@@ -110,9 +104,7 @@ function callHistory(obj){
         demo = demo - 20
         console.log(demo)
     }
-    
 }
-
 
 // call history clear js
 document.getElementById("call-history-clear-btn").addEventListener("click", function(){
