@@ -1,5 +1,5 @@
 // global variable
-const callHistoryList = []
+// const callHistoryList = []
 
 // function to copy number and paste
 function copy(id, value){
@@ -46,7 +46,7 @@ for(const heartbtn of heartButtons ){
 }
 
 // fanction to call alert
-function call(id, message, cardTitle, number){
+function call(id, message){
     const callBtns = document.getElementById(id)
     callBtns.addEventListener('click', function(){
         let availableCoin = parseInt(document.getElementById('coin-count').innerText)
@@ -54,32 +54,68 @@ function call(id, message, cardTitle, number){
             alert(message)
             newAvailableCoin = availableCoin - 20
             document.getElementById('coin-count').innerText = newAvailableCoin
+
         } 
         else{
             alert('You have not enough coin for the Call')
         }
-
-        const callCard = {
-            name: cardTitle,
-            service: number,
-            date: new Date().toLocaleTimeString()
-        } 
-
-        callHistoryList.unshift(callCard)
     })
 }
 
-call('emergency-number-call', "Calling National Emergency Service 999... ", "National Emergency Service", '999')
-call('police-helpline-call', 'Calling Police Helpline Number 999...', 'Police Helpline', '999')
-call('fire-service-call', 'Calling Fire Service Number 999...', 'Fire Service', "999")
-call('ambulance-service_call', "Calling Ambulance Service 1994-999999...", 'Ambulance Service', '1994-999999')
-call("women-child-call", "Calling Women and Child Helpline 109...", "Women and Child Helpline", '109')
-call('anti-corruption-helpline-call', 'Calling Anti Corruption Helpline 106...', 'Anti-Corruption Helpline', '106')
-call('electricity-helpline-call', 'Calling Electricity Helpline 16216...', 'Electricity Helpline', "16216")
-call("brac-helpline-call", 'Calling Brac Helpline 16445...', "Brac Helpline", "16445")
-call('railway-helpline-call', 'Calling Railway Helpline Number 163...', 'Bangladesh Railway Helpline', '163')
+call('emergency-number-call', "Calling National Emergency Service 999... ")
+call('police-helpline-call', 'Calling Police Helpline Number 999...')
+call('fire-service-call', 'Calling Fire Service Number 999...')
+call('ambulance-service_call', "Calling Ambulance Service 1994-999999...")
+call("women-child-call", "Calling Women and Child Helpline 109...")
+call('anti-corruption-helpline-call', 'Calling Anti Corruption Helpline 106...',)
+call('electricity-helpline-call', 'Calling Electricity Helpline 16216...')
+call("brac-helpline-call", 'Calling Brac Helpline 16445...')
+call('railway-helpline-call', 'Calling Railway Helpline Number 163...')
+
+// call history card all
+const btns = document.querySelectorAll('.call-btn')
+for(const btn of btns){
+    btn.addEventListener('click', function(e){
+        const card = e.currentTarget.closest('.card')
+        const firstH2Text = card.querySelector("h2").innerText;
+        const firstH1Text = card.querySelector("h1").innerText;
+
+        const obj = {
+            title: firstH2Text,
+            number: firstH1Text,
+            date: new Date().toLocaleTimeString()
+        }
+        // callHistoryList.push(obj)
+        callHistory(obj)
+        // console.log(callHistoryList)
+    })
+}
+
+//call history card function
+let demo = 100
+function callHistory(obj){
+    if(demo >= 20){
+        const cardContainer = document.getElementById('card-container')
+        const div = document.createElement('div')
+        div.innerHTML = `
+            <div class="flex justify-between items-center bg-gray-50 shadow-md px-4 py-2 mt-3 rounded-lg">
+                <div>
+                    <h1 class="font-bold text-xs xl:text-lg">${obj.title}</h1>
+                    <p class="text-gray-500 text-[10px] xl:text-base">${obj.number}</p>
+                </div>
+                <p class="text-gray-500 text-[10px] xl:text-base">${obj.date}</p>
+            </div>
+        `
+        cardContainer.appendChild(div)
+        demo = demo - 20
+        console.log(demo)
+    }
+    
+}
 
 
-
-
-
+// call history clear js
+document.getElementById("call-history-clear-btn").addEventListener("click", function(){
+    alert('You want to delete all History ?')
+    document.getElementById("card-container").innerHTML = ''
+})
